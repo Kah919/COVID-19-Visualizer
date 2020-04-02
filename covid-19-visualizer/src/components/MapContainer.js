@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Map from './USAMap';
-import StateData from './StateData';
+
 
 
 const MapContainer = () => {
@@ -16,8 +16,7 @@ const MapContainer = () => {
 
     return (
         <>
-            <Map />
-            <StateData />
+            <Map states={states}/>
         </>
     )
 }
