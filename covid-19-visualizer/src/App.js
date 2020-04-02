@@ -1,10 +1,10 @@
 import React from 'react';
-import Map from './components/USAMap';
+import MapContainer from './components/MapContainer';
 
 function App() {
   return (
     <div>
-      <Map />
+      <MapContainer />
     </div>
   );
 }
