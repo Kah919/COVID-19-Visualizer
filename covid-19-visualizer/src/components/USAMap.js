@@ -22,7 +22,7 @@ const Map = props => {
       return a.positive - b.positive
     })
 
-    let count = 87
+    let count = 0
 
     sorted.forEach(state => {
         stateObj[state.state] = {
@@ -32,8 +32,14 @@ const Map = props => {
                 setStateInfo(state)
             }
         }
-        count += 3
+        count += 5
     })
+
+    if(sorted.length > 0) {
+      const largest = sorted[sorted.length - 1]
+      stateObj[largest.state].fill = 'pink'
+    }
+    
     return stateObj
   };
 
