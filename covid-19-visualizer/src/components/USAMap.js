@@ -3,7 +3,7 @@ import USAMap from "react-usa-map";
 import StateData from './StateData';
  
 const Map = props => {
-    const [stateInfo, setStateInfo ] = useState({})
+  const [stateInfo, setStateInfo ] = useState({})
   /* mandatory */
   const mapHandler = (event) => {
     // const state = states.filter(state => {
@@ -18,26 +18,30 @@ const Map = props => {
 
     const stateObj = {}
 
-    props.states.forEach(state => {
+    const sorted = props.states.sort((a, b) => {
+      return a.positive - b.positive
+    })
+
+    let count = 87
+
+    sorted.forEach(state => {
         stateObj[state.state] = {
-            fill: "pink",
+            fill: `rgb(${count},0,0)`,
             clickHandler: event => {
                 console.log(`Custom handler for ${event.target.dataset}`, state )
                 setStateInfo(state)
             }
         }
+        count += 3
     })
-
     return stateObj
-
-
   };
 
     
     return (
       <div className="App">
         <USAMap customize={statesCustomConfig()} onClick={mapHandler} />
-        <StateData stateInfo={stateInfo} />
+        {stateInfo.state ? <StateData stateInfo={stateInfo} /> : null}
       </div>
     );
   
