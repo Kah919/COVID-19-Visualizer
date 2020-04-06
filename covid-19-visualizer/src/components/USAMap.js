@@ -10,7 +10,15 @@ const Map = props => {
     //     return state.state === event.target.dataset.name
     // })
     console.log(props)
+    
   };
+
+  const screenSize = () => {
+    if(window.innerWidth > 1000) {
+      return window.innerWidth / 2
+    } 
+    return window.innerWidth - 10
+  }
  
   /* optional customization of filling per state and calling custom callbacks per state */
 
@@ -46,7 +54,7 @@ const Map = props => {
     
     return (
       <div className="App">
-        <USAMap customize={statesCustomConfig()} onClick={mapHandler} />
+        <USAMap className="map" customize={statesCustomConfig()} onClick={mapHandler} width={screenSize()}/>
         {stateInfo.state ? <StateData stateInfo={stateInfo} /> : null}
       </div>
     );
