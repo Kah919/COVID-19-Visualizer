@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import USAMap from "react-usa-map";
 import StateData from './StateData';
+import StatsModal from './StatsModal';
  
 const Map = props => {
   const [stateInfo, setStateInfo ] = useState({})
@@ -56,6 +57,7 @@ const Map = props => {
       <div className="App">
         <USAMap className="map" customize={statesCustomConfig()} onClick={mapHandler} width={screenSize()}/>
         {stateInfo.state ? <StateData stateInfo={stateInfo} /> : null}
+        <StatsModal />
       </div>
     );
   
