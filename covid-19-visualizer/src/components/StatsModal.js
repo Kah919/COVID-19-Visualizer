@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button'
+import Button from '@material-ui/core/Button';
+
 
 
 const StatsModal = props => {
@@ -8,7 +9,7 @@ const StatsModal = props => {
   
     return (
       <>
-        <Button onClick={() => setLgShow(true)}>Large modal</Button>
+        <Button variant="contained" color="primary" onClick={() => setLgShow(true)}>Large modal</Button>
         
         <Modal
           size="lg"

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Map from './USAMap';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -17,6 +18,9 @@ const MapContainer = () => {
     return (
         <>
             <Map states={states}/>
+            <Button variant="contained" color="primary">
+                Hello World
+            </Button>
         </>
     )
 }
