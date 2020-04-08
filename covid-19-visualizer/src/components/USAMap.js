@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import USAMap from "react-usa-map";
-import StateData from './StateData';
 import StateDataModal from './StateDataModal';
-import StatsModal from './StatsModal';
 import Modal from 'react-bootstrap/Modal';
 import Button from '@material-ui/core/Button';
  
