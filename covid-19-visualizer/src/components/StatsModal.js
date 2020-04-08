@@ -19,7 +19,7 @@ const StatsModal = props => {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Large Modal
+              Hello World
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>...</Modal.Body>

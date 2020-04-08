@@ -18,10 +18,16 @@ const StateDataModal = props => {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Large Modal
+            { props.stateInfo.state }
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>...</Modal.Body>
+          <Modal.Body>
+              <li><strong>Cases:</strong> {props.stateInfo.positive}</li>
+              <li><strong>Hospitalized:</strong> {props.stateInfo.hospitalized}</li>
+              <li><strong>Recovered:</strong> {props.stateInfo.recovered}</li>
+              <li><strong>Death:</strong> {props.stateInfo.death}</li>
+              <li><em>Last Updated: {props.stateInfo.lastUpdateEt}</em></li>
+          </Modal.Body>
         </Modal>
       </>
     );
