@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import USAMap from "react-usa-map";
 import StateData from './StateData';
+import StateDataModal from './StateDataModal';
 import StatsModal from './StatsModal';
+import Modal from 'react-bootstrap/Modal';
+import Button from '@material-ui/core/Button';
  
 const Map = props => {
   const [stateInfo, setStateInfo ] = useState({})
-  const [lgShow, setLgShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  
 
   const screenSize = () => {
     if(window.innerWidth > 1000) {
@@ -32,6 +36,7 @@ const Map = props => {
             clickHandler: event => {
                 console.log(`Custom handler for ${event.target.dataset}`, state )
                 setStateInfo(state)
+                setShowModal(true)
             }
         }
         count += 5
@@ -45,11 +50,15 @@ const Map = props => {
     return stateObj
   };
 
+  const stopModal = () => {
+    setShowModal(false)
+  }
+
     
     return (
       <div className="">
         <USAMap className="map" customize={statesCustomConfig()} width={screenSize()}/>
-        {stateInfo.state ? <StateData stateInfo={stateInfo} /> : null}
+        { showModal ? <StateDataModal showModal={showModal} stopModal={stopModal} /> : null }
       </div>
     );
   
