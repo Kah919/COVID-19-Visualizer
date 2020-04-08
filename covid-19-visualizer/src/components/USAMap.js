@@ -5,18 +5,11 @@ import StatsModal from './StatsModal';
  
 const Map = props => {
   const [stateInfo, setStateInfo ] = useState({})
-  /* mandatory */
-  const mapHandler = (event) => {
-    // const state = states.filter(state => {
-    //     return state.state === event.target.dataset.name
-    // })
-    console.log(props)
-    
-  };
+  const [lgShow, setLgShow] = useState(false);
 
   const screenSize = () => {
     if(window.innerWidth > 1000) {
-      return window.innerWidth / 2
+      return window.innerWidth
     } 
     return window.innerWidth - 10
   }
@@ -46,7 +39,7 @@ const Map = props => {
 
     if(sorted.length > 0) {
       const largest = sorted[sorted.length - 1]
-      stateObj[largest.state].fill = 'pink'
+      stateObj[largest.state].fill = 'green'
     }
     
     return stateObj
@@ -54,10 +47,9 @@ const Map = props => {
 
     
     return (
-      <div className="App">
-        <USAMap className="map" customize={statesCustomConfig()} onClick={mapHandler} width={screenSize()}/>
+      <div className="">
+        <USAMap className="map" customize={statesCustomConfig()} width={screenSize()}/>
         {stateInfo.state ? <StateData stateInfo={stateInfo} /> : null}
-        <StatsModal />
       </div>
     );
   
