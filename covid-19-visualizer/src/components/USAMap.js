@@ -19,7 +19,6 @@ const Map = props => {
   /* optional customization of filling per state and calling custom callbacks per state */
 
   const statesCustomConfig = () => {
-
     const stateObj = {}
 
     const sorted = props.states.sort((a, b) => {
@@ -52,11 +51,22 @@ const Map = props => {
     setShowModal(false)
   }
 
-    
+    const x = statesCustomConfig();
+    const y = screenSize();
+    // console.log(x)
+    // console.log(y)
     return (
       <div className="">
-        <USAMap className="map" customize={statesCustomConfig()} width={screenSize()}/>
-        { showModal ? <StateDataModal showModal={showModal} stopModal={stopModal} stateInfo={ stateInfo } /> : null }
+        <USAMap className="map" customize={x} width={y}/>
+        {/* { showModal ? <StateDataModal showModal={showModal} stopModal={stopModal} stateInfo={ stateInfo } /> : null } */}
+
+        {showModal && (
+          <StateDataModal
+            showModal={showModal}
+            stopModal={stopModal}
+            stateInfo={ stateInfo }
+          />
+        )}
       </div>
     );
   
