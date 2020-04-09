@@ -6,7 +6,24 @@ import StateTimeLine from './StateTimeLine';
 
 const StateDataModal = props => {
     const [lgShow, setLgShow] = useState(true);
-    const [stateDataTimeLine, setStateDataTimeLine] = useState()
+    const [ shouldFetch, setShouldFetch ] = useState(true);
+    const [stateDataTimeLine, setStateDataTimeLine] = useState([])
+
+    const normalizeData = data => {
+      let day = data.split('\n');
+      day.shift()
+      const dailyDataArr = []
+      for(let i = 0; i < day.length; i++) {
+        const dailyData = {}
+        const data = day[i].split(",")
+        dailyData.date = new Date(data[0] * 1000)
+        dailyData.tested = data[1]
+        dailyData.positive = data[2]
+        dailyData.deaths = data[3]
+        dailyDataArr.push(dailyData)
+      }
+      return dailyDataArr
+    }
 
     useEffect(() => {
       fetch(`https://cors-anywhere.herokuapp.com/http://coronavirusapi.com/getTimeSeries/ny`, {
@@ -16,20 +33,17 @@ const StateDataModal = props => {
         }})
       .then(res => res.text())
       .then(data => {
-        console.log('a')
-          console.log(data)
-          console.log(typeof data)
-          for (let i = 0; i < data.length; i++) {
-            if (data[i] === '\n') console.log('newline')
-          }
+          // for (let i = 0; i < data.length; i++) {
+          //   if (data[i] === '\n') console.log('newline')
+          // }
           
-          let x = data.split('\n');
-          console.log(x)
-          // console.log(props.stateInfo.state)
-          // setStateDataTimeLine(data)
+          const normalized = normalizeData(data)
+          console.log(normalized)
+          setStateDataTimeLine(normalized)
+          setShouldFetch(false)
       })
       .catch(err => console.log(err))
-    })
+    }, shouldFetch)
   
     return (
       <>
