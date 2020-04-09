@@ -17,16 +17,16 @@ const StateDataModal = props => {
         const dailyData = {}
         const data = day[i].split(",")
         dailyData.date = new Date(data[0] * 1000)
-        dailyData.tested = data[1]
-        dailyData.positive = data[2]
-        dailyData.deaths = data[3]
+        dailyData.tested = parseInt(data[1])
+        dailyData.positive = parseInt(data[2])
+        dailyData.deaths = parseInt(data[3] || 0)
         dailyDataArr.push(dailyData)
       }
       return dailyDataArr
     }
 
     useEffect(() => {
-      fetch(`https://cors-anywhere.herokuapp.com/http://coronavirusapi.com/getTimeSeries/ny`, {
+      fetch(`https://cors-anywhere.herokuapp.com/http://coronavirusapi.com/getTimeSeries/${props.stateInfo.state}`, {
         headers: {
           'Content-Type': 'application/json',
           'X-Requested-With': 'XMLHttpRequest',
