@@ -16,7 +16,7 @@ const StateDataModal = props => {
       for(let i = 0; i < day.length; i++) {
         const dailyData = {}
         const data = day[i].split(",")
-        dailyData.date = new Date(data[0] * 1000)
+        dailyData.date = new Date(data[0] * 1000).toString()
         dailyData.tested = parseInt(data[1])
         dailyData.positive = parseInt(data[2])
         dailyData.deaths = parseInt(data[3] || 0)
@@ -33,12 +33,7 @@ const StateDataModal = props => {
         }})
       .then(res => res.text())
       .then(data => {
-          // for (let i = 0; i < data.length; i++) {
-          //   if (data[i] === '\n') console.log('newline')
-          // }
-          
           const normalized = normalizeData(data)
-          console.log(normalized)
           setStateDataTimeLine(normalized)
           setShouldFetch(false)
       })
@@ -65,7 +60,7 @@ const StateDataModal = props => {
               <li><strong>Recovered:</strong> {props.stateInfo.recovered}</li>
               <li><strong>Death:</strong> {props.stateInfo.death}</li>
               <li><em>Last Updated: {props.stateInfo.lastUpdateEt}</em></li>
-              <StateTimeLine />
+              <StateTimeLine stateDataTimeLine={ stateDataTimeLine }/>
           </Modal.Body>
         </Modal>
       </>
