@@ -1,6 +1,7 @@
 import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import CoronaVirusImg from '../images/coronavirus.png'
 
 const StateTimeLine = props => {
     const dayElement = () => {
@@ -9,10 +10,13 @@ const StateTimeLine = props => {
           return <VerticalTimelineElement
                   className="vertical-timeline-element--work"
                   date={data.date}
-                  iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                  iconStyle={{ backgroundImage: `url(${CoronaVirusImg})`, boxShadow: 'none', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
               >
-                <h3 className="vertical-timeline-element-title">tested: { data.tested }</h3>
-                <h4 className="vertical-timeline-element-subtitle">positive: { data.positive }</h4>
+                <ul>
+                  <li><strong> Tested: </strong> { data.tested } </li>
+                  <li><strong> Positive: </strong> { data.positive } </li>
+                  <li><strong> Death: </strong> { data.deaths } </li>
+                </ul>
           </VerticalTimelineElement>
         })
       }
@@ -22,7 +26,7 @@ const StateTimeLine = props => {
 
     return(
         <VerticalTimeline>
-            { dayElement() }
+          { dayElement() }
         </VerticalTimeline>
     )
 }

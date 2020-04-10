@@ -53,12 +53,10 @@ const Map = props => {
 
     const x = statesCustomConfig();
     const y = screenSize();
-    // console.log(x)
-    // console.log(y)
+
     return (
       <div className="">
         <USAMap className="map" customize={x} width={y}/>
-        {/* { showModal ? <StateDataModal showModal={showModal} stopModal={stopModal} stateInfo={ stateInfo } /> : null } */}
 
         {showModal && (
           <StateDataModal

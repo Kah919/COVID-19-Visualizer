@@ -17,8 +17,8 @@ const StateDataModal = props => {
         const dailyData = {}
         const data = day[i].split(",")
         dailyData.date = new Date(data[0] * 1000).toString()
-        dailyData.tested = parseInt(data[1])
-        dailyData.positive = parseInt(data[2])
+        dailyData.tested = parseInt(data[1] || 0)
+        dailyData.positive = parseInt(data[2] || 0)
         dailyData.deaths = parseInt(data[3] || 0)
         dailyDataArr.push(dailyData)
       }
