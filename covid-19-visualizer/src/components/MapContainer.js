@@ -18,20 +18,9 @@ const MapContainer = () => {
         })
     }, shouldFetch)
 
-    const onClick = () => {
-        // let x = arr;
-        // x.push(2)
-        // console.log(x)
-        console.log(typeof arr.push(2))
-        setArr(arr.push(2))
-        console.log(arr)
-    }
     console.log('rerender')
     return (
-        <>
-            <Map states={states}/>
-            <button onClick={onClick}>apples</button>
-        </>
+        <Map states={states}/>
     )
 }
 
