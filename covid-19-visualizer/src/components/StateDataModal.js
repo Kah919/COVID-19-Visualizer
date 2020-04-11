@@ -55,11 +55,23 @@ const StateDataModal = props => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              <li><strong>Cases:</strong> {props.stateInfo.positive}</li>
-              <li><strong>Hospitalized:</strong> {props.stateInfo.hospitalized}</li>
-              <li><strong>Recovered:</strong> {props.stateInfo.recovered}</li>
-              <li><strong>Death:</strong> {props.stateInfo.death}</li>
-              <li><em>Last Updated: {props.stateInfo.lastUpdateEt}</em></li>
+            <table>
+              <thead>
+                <td colspan="2"> Cases </td>
+                <td colspan="2"> Hospitalized </td>
+                <td colspan="2"> Recovered </td>
+                <td colspan="2"> Death </td>
+                <td colspan="2"> Last Updated </td>
+              </thead>
+              <tr>
+                <td colspan="2">{props.stateInfo.positive}</td>
+                <td colspan="2">{props.stateInfo.hospitalized}</td>
+                <td colspan="2">{props.stateInfo.recovered}</td>
+                <td colspan="2">{props.stateInfo.death}</td>
+                <td colspan="2">{props.stateInfo.lastUpdateEt}</td>
+              </tr>
+            </table>
+            
               <StateTimeLine stateDataTimeLine={ stateDataTimeLine }/>
           </Modal.Body>
         </Modal>
