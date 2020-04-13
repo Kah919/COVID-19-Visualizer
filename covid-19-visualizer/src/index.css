@@ -37,3 +37,8 @@ tr:nth-child(even) td {
 tr:nth-child(odd) td {
 	background-color: #fafafa;
 }
+
+.map_container {
+	background-color: #add8e6;
+	text-align: center;
+}
