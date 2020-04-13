@@ -29,7 +29,9 @@ const Map = props => {
 
     sorted.forEach(state => {
         stateObj[state.state] = {
-            fill: `rgb(${count},0,0)`,
+            fill: `rgb(0,${count},0)`,
+            title: "HIHI",
+            
             clickHandler: event => {
                 console.log(`Custom handler for ${event.target.dataset}`, state )
                 setStateInfo(state)
@@ -41,7 +43,7 @@ const Map = props => {
 
     if(sorted.length > 0) {
       const largest = sorted[sorted.length - 1]
-      stateObj[largest.state].fill = 'green'
+      stateObj[largest.state].fill = 'red'
     }
     
     return stateObj
@@ -55,13 +57,13 @@ const Map = props => {
     const y = screenSize();
 
     return (
-      <div className="">
-        <USAMap className="map" customize={x} width={y}/>
+      <div>
+        <USAMap className="map" customize={x} width={y} title="United States of America COVID-19"/>
 
         {showModal && (
           <StateDataModal
-            showModal={showModal}
-            stopModal={stopModal}
+            showModal={ showModal }
+            stopModal={ stopModal }
             stateInfo={ stateInfo }
           />
         )}
