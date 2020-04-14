@@ -6,6 +6,9 @@ export default props => {
         border: 1px solid black;
         width: 30%;
         border-radius: 10px;
+        background-color: #ffffffa8;
+        margin: 0 auto;
+        padding: 10px;
     `;
 
     const H1 = styled.h1`
@@ -14,6 +17,7 @@ export default props => {
 
     const P = styled.p`
         text-align: left;
+        font-size: 14px;
     `;
 
     return (

@@ -30,8 +30,6 @@ const Map = props => {
     sorted.forEach(state => {
         stateObj[state.state] = {
             fill: `rgb(0,${count},0)`,
-            title: "HIHI",
-            
             clickHandler: event => {
                 console.log(`Custom handler for ${event.target.dataset}`, state )
                 setStateInfo(state)
