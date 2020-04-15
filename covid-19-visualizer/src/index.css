@@ -73,13 +73,13 @@ tr:nth-child(odd) td {
 nav {
   height: 6vh;
   background: #5b78c7;
-  border-bottom: 4px solid blue;
+  border-bottom: 1px solid blue;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  width: 50%;
+  width: 30%;
   height: 100%;
   justify-content: space-around;
   align-items: center;
