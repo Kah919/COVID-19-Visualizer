@@ -86,7 +86,7 @@ nav {
   margin-left: auto;
 }
 
-.nav-links li a {
+.nav-links li {
   color: white;
   text-decoration: none;
 }
@@ -135,4 +135,5 @@ nav {
 }
 
 /* Nav Bar */
+
 

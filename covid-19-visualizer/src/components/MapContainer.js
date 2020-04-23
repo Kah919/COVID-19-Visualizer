@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Map from './USAMap';
 import Button from '@material-ui/core/Button';
-import Legend from './Legend'
+import Legend from './Legend';
 
 
 
