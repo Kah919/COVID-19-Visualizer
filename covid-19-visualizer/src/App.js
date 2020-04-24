@@ -3,6 +3,7 @@ import MapContainer from './components/MapContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import LandingPage from './components/LandingPage';
+import Global from './components/Global';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route path="/map" render={() => <MapContainer />} />
         <Route path="/home" render={() => <LandingPage />} />
+        <Route path="/global" render={() => <Global />} />
         <Route path="/" render={() => <LandingPage />} />
       </Switch>
     </Router >
