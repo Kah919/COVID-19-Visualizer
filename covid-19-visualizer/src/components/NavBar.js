@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from "react-router-dom";
 
 
@@ -34,7 +34,7 @@ export default () => {
             <ul className="nav-links" onClick={ open }>
                 <li id="home" onClick={ redirector }> Home </li>
                 <li id="map" onClick={ redirector }> Map </li>
-                <li id="faq" onClick={ redirector }> FAQs </li>
+                <li id="global" onClick={ redirector }> Global </li>
             </ul>
         </nav>
     )

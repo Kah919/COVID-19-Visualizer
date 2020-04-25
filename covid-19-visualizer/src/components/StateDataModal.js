@@ -5,9 +5,9 @@ import StateTimeLine from './StateTimeLine';
 
 
 const StateDataModal = props => {
-    const [lgShow, setLgShow] = useState(true);
+    const [ lgShow, setLgShow ] = useState(true);
     const [ shouldFetch, setShouldFetch ] = useState(true);
-    const [stateDataTimeLine, setStateDataTimeLine] = useState([])
+    const [ stateDataTimeLine, setStateDataTimeLine ] = useState([])
 
     const normalizeData = data => {
       let day = data.split('\n');

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import USAMap from "react-usa-map";
 import StateDataModal from './StateDataModal';
-import Modal from 'react-bootstrap/Modal';
-import Button from '@material-ui/core/Button';
+// import Modal from 'react-bootstrap/Modal';
+// import Button from '@material-ui/core/Button';
  
 const Map = props => {
   const [stateInfo, setStateInfo ] = useState({})
