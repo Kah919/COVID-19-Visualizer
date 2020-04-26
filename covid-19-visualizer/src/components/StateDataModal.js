@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import StateTimeLine from './StateTimeLine';
+import CountUp from 'react-countup';
 
 
 
-const StateDataModal = props => {
+const StateDataModal = ( {stateInfo: { state, positive, hospitalized, recovered, death, lastUpdateEt }, stopModal }) => {
     const [ lgShow, setLgShow ] = useState(true);
     const [ shouldFetch, setShouldFetch ] = useState(true);
     const [ stateDataTimeLine, setStateDataTimeLine ] = useState([])
@@ -26,7 +27,7 @@ const StateDataModal = props => {
     }
 
     useEffect(() => {
-      fetch(`https://cors-anywhere.herokuapp.com/http://coronavirusapi.com/getTimeSeries/${props.stateInfo.state}`, {
+      fetch(`https://cors-anywhere.herokuapp.com/http://coronavirusapi.com/getTimeSeries/${state}`, {
         headers: {
           'Content-Type': 'application/json',
           'X-Requested-With': 'XMLHttpRequest',
@@ -47,11 +48,11 @@ const StateDataModal = props => {
           show={lgShow}
           onHide={() => setLgShow(!lgShow)}
           aria-labelledby="example-modal-sizes-title-lg"
-          onClick={props.stopModal}
+          onClick={stopModal}
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-            { props.stateInfo.state }
+            { state }
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -64,11 +65,19 @@ const StateDataModal = props => {
                 <td colspan="2"> Last Updated </td>
               </thead>
               <tr>
-                <td colspan="2">{props.stateInfo.positive}</td>
-                <td colspan="2">{props.stateInfo.hospitalized}</td>
-                <td colspan="2">{props.stateInfo.recovered}</td>
-                <td colspan="2">{props.stateInfo.death}</td>
-                <td colspan="2">{props.stateInfo.lastUpdateEt}</td>
+                <td colspan="2">
+                  <CountUp start={ 0 } end={ positive } duration={ 2.5 } separator="," />
+                </td>
+                <td colspan="2">
+                  <CountUp start={ 0 } end={ hospitalized } duration={ 2.5 } separator="," />
+                </td>
+                <td colspan="2">
+                  <CountUp start={ 0 } end={ recovered } duration={ 2.5 } separator="," />
+                </td>
+                <td colspan="2">
+                  <CountUp start={ 0 } end={ death } duration={ 2.5 } separator="," />
+                </td>
+                <td colspan="2">{lastUpdateEt}</td>
               </tr>
             </table>
             
