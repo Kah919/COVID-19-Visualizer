@@ -18,7 +18,7 @@ class Global extends Component {
     render() {
         const { data } = this.state;
         return(
-            <div>
+            <div className="global_container">
                 <Cards data={ data } />
                 <CountryPicker />
                 <Charts />
