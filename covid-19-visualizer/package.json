@@ -11,6 +11,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-chartjs-2": "^2.9.0",
@@ -22,7 +23,7 @@
     "react-vertical-timeline-component": "^2.5.0",
     "styled-components": "^5.1.0"
   },
-  "homepage":"https://kah919.github.io/covid-19-visualizer",
+  "homepage": "https://kah919.github.io/COVID-19-Visualizer",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
