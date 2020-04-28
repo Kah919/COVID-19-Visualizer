@@ -8,7 +8,6 @@ import Legend from './Legend';
 const MapContainer = () => {
     const [ states, setStates ] = useState([])
     const [ shouldFetch, setShouldFetch ] = useState(true)
-    // const [ arr, setArr ] = useState([])
 
     useEffect(() => {
         fetch("https://covidtracking.com/api/states")
@@ -19,7 +18,6 @@ const MapContainer = () => {
         })
     }, shouldFetch)
 
-    console.log('rerender')
     return (
         <div className="map_container">
             <h1> USA COVID-19 Map </h1>

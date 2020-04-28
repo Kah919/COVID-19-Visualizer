@@ -22,11 +22,13 @@
     "react-vertical-timeline-component": "^2.5.0",
     "styled-components": "^5.1.0"
   },
+  "homepage":"https://kah919.github.io/covid-19-visualizer",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
