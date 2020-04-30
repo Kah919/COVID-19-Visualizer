@@ -52,11 +52,11 @@ const Map = ({ states }) => {
   }
 
     const x = statesCustomConfig();
-    const y = screenSize();
+    const y = screenSize(); // add width={y} to USAMap for size
 
     return (
       <div>
-        <USAMap className="map" customize={x} width={y} title="United States of America COVID-19"/>
+        <USAMap className="map" width="" customize={x} title="United States of America COVID-19"/>
 
         {showModal && (
           <StateDataModal

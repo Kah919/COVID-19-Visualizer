@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Map from './USAMap';
 // import Button from '@material-ui/core/Button';
-import Legend from './Legend';
+import SideInfo from './SideInfo/SideInfo';
 // import { fetchStates } from './api';
 
 
@@ -21,9 +21,8 @@ const MapContainer = () => {
     
     return (
         <div className="map_container">
-            <h1> USA COVID-19 Map </h1>
             <Map states={states}/>
-            <Legend />
+            <SideInfo />
         </div>
     )
 }
