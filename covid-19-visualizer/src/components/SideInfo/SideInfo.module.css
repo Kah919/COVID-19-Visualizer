@@ -1,0 +1,16 @@
+.card {
+    margin-top: 10% !important;
+}
+
+.legend {
+    border-top: 10px solid rgba(255, 0, 255, 0.5);
+    margin-bottom: 20px !important;
+}
+
+.most {
+    border-top: 10px solid rgba(255, 0, 0, 0.5);
+}
+
+.least {
+    border-top: 10px solid rgba(0, 255, 0, 0.5);
+}

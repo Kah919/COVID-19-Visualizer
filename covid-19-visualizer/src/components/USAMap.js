@@ -3,6 +3,7 @@ import USAMap from "react-usa-map";
 import StateDataModal from './StateDataModal';
 // import Modal from 'react-bootstrap/Modal';
 // import Button from '@material-ui/core/Button';
+import cs from 'classnames';
  
 const Map = ({ states }) => {
   const [stateInfo, setStateInfo ] = useState({});
