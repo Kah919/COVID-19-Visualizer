@@ -4,7 +4,25 @@ import styles from './SideInfo.module.css';
 import cx from 'classnames';
 
 
-export default props => {
+export default ({ states }) => {
+    const sortStates = () => {
+        const sorted = states.sort((a, b) => {
+            return a.positive - b.positive; 
+        })
+
+        return sorted;
+    }
+    
+    const stateData = idx => {
+        const { state, positive } = sortStates()[idx];
+        const stateObj = {};
+        stateObj.name = state;
+        stateObj.positive = positive;
+
+        return stateObj;
+    }
+
+
     return (
         <div className="side-container">
             <Grid container spacing={3} justify="center">
@@ -19,14 +37,14 @@ export default props => {
                 </Grid>
                 <Grid item component={ Card } xs={ 12 } md={ 10 } className={ cx(styles.legend, styles.most) }>
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom> Recovered </Typography>
-                        <Typography variant="body2"> Number of recoveries COVID-19 </Typography>
+                        <Typography color="textSecondary" gutterBottom> Most Cases </Typography>
+                        <Typography variant="body2"> { states.length ? stateData(states.length - 1).name : null } </Typography>
                     </CardContent>
                 </Grid>
                 <Grid item component={ Card } xs={ 12 } md={ 10 } className={ cx(styles.legend, styles.least) }>
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom> Deaths </Typography>
-                        <Typography variant="body2"> Number of deaths caused by COVID-19 </Typography>
+                        <Typography color="textSecondary" gutterBottom> Least Cases </Typography>
+                        <Typography variant="body2"> { states.length ? stateData(0).name : null } </Typography>
                     </CardContent>
                 </Grid>
             </Grid>

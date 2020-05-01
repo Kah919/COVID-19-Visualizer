@@ -22,7 +22,7 @@ const MapContainer = () => {
     return (
         <div className="map_container">
             <Map states={states}/>
-            <SideInfo />
+            <SideInfo states={states}/>
         </div>
     )
 }
