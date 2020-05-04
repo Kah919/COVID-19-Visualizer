@@ -66,8 +66,10 @@ tr:nth-child(odd) td {
 }
 
 .map_container {
+  width: 95%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
 }
 
 /* Nav Bar */

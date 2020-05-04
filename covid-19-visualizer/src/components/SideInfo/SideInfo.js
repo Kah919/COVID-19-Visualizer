@@ -1,14 +1,7 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
+import { Card, CardContent, Grid } from '@material-ui/core';
 import styles from './SideInfo.module.css';
 import cx from 'classnames';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 export default ({ states }) => {
     const sortStates = () => {
@@ -30,12 +23,12 @@ export default ({ states }) => {
 
     const mostCaption = state => {
         const { name, positive } = state;
-        return <p> { `${name} is currently the leading state with the most COVID-19 cases at ${positive}.` } </p>
+        return <p> <span className={styles.state}> { name } </span> is currently the leading state with the most COVID-19 cases at <span className={styles.cases}> { positive }</span> </p>
     }
 
     const leastCaption = state => {
         const { name, positive } = state;
-        return <p> { `${name} is currently the state with the least amount of COVID-19 cases at ${positive}.` } </p>
+        return <p> <span className={styles.state}> { name } </span> is currently the state with the least amount of COVID-19 cases at <span className={styles.cases}> { positive }</span> </p>
     }
 
 
@@ -45,24 +38,24 @@ export default ({ states }) => {
                 <Grid item component={ Card } xs={ 12 } md={ 10 } className={ cx(styles.legend, styles.card) }>
                     <CardContent>
                         <h1> Legend </h1>
-                        <Typography variant="body2"> This map shows which state has the most COVID-19 cases based on the color. The brighter the green the more cases there are. The state colored in red is currently the state with the most COVID-19 cases. 
+                        <p> This map shows which state has the most COVID-19 cases based on the color. The brighter the green the more cases there are. The state colored in red is currently the state with the most COVID-19 cases. 
                         <br></br>
                         Clicking on a state will show you the amount of cases, recoveries, deaths, and timeline of that current state.
-                        </Typography>
+                        </p>
                     </CardContent>
                 </Grid>
                 <Grid item component={ Card } xs={ 12 } md={ 10 } className={ cx(styles.legend, styles.most) }>
                     <CardContent>
                         <h2> Most Cases </h2>
-                        <Typography variant="body2"> { states.length ? mostCaption(stateData(states.length - 1)) : null } </Typography>
+                        <p variant="body2"> { states.length ? mostCaption(stateData(states.length - 1)) : null } </p>
                     </CardContent>
                 </Grid>
-                <Grid item component={ Card } xs={ 12 } md={ 10 } className={ cx(styles.legend, styles.least) }>
+                {/* <Grid item component={ Card } xs={ 12 } md={ 10 } className={ cx(styles.legend, styles.least) }>
                     <CardContent>
                         <h2> Least Cases </h2>
                         <Typography variant="body2"> { states.length ? leastCaption(stateData(0)) : null } </Typography>
                     </CardContent>
-                </Grid>
+                </Grid> */}
             </Grid>
         </div>
     )
